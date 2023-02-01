@@ -7,10 +7,9 @@ import 'package:get/get.dart';
 import '../utils.dart';
 
 class AuthScreen extends StatelessWidget {
-  const AuthScreen({super.key});
-
+  AuthController authController = Get.put(AuthController());
   buildTab(text, selected, context) {
-    return Container(
+    return SizedBox(
       width: MediaQuery.of(context).size.width / 2,
       height: 40,
       child: Center(
@@ -26,7 +25,6 @@ class AuthScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    AuthController authController = Get.put(AuthController());
     return Scaffold(
       body: Container(
         alignment: Alignment.center,
@@ -34,7 +32,7 @@ class AuthScreen extends StatelessWidget {
           child: Column(
             children: [
               Text(
-                "Wishly",
+                'Wishly',
                 style: textStyle(35, Colors.lightBlue[400]!, FontWeight.bold),
               ),
               const SizedBox(
@@ -45,14 +43,14 @@ class AuthScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     InkWell(
-                      onTap: () => AuthController().changeTab("Login"),
-                      child: buildTab("Login",
-                          authController.tab.value == "Login", context),
+                      onTap: () => authController.changeTab('Login'),
+                      child: buildTab('Login',
+                          authController.tab.value == 'Login', context),
                     ),
                     InkWell(
-                      onTap: () => AuthController().changeTab("Login"),
-                      child: buildTab("Register",
-                          authController.tab.value == "Register", context),
+                      onTap: () => authController.changeTab('Register'),
+                      child: buildTab('Register',
+                          authController.tab.value == 'Register', context),
                     ),
                   ],
                 ),
@@ -60,7 +58,7 @@ class AuthScreen extends StatelessWidget {
               const SizedBox(
                 height: 20,
               ),
-              Obx(() => authController.tab.value == "Login"
+              Obx(() => authController.tab.value == 'Login'
                   ? const LoginWidget()
                   : const RegisterWidget()),
             ],

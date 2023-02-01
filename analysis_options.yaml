@@ -10,7 +10,15 @@
 include: package:lints/core.yaml
 
 linter:
-  rules:
+  rules: 
+    - cancel_subscriptions
+    - close_sinks
+    - comment_references
+    - one_member_abstracts
+    - only_throw_errors
+    - package_api_docs
+    - prefer_final_in_for_each
+    - prefer_single_quotes
     - avoid_print
     - avoid_unnecessary_containers
     - avoid_web_libraries_in_flutter
