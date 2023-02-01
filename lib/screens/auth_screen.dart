@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:tutorial_10/controller/auth_controller.dart';
 import 'package:tutorial_10/wigdets/login_widget.dart';
 import 'package:tutorial_10/wigdets/register_widget.dart';
+import 'package:get/get.dart';
 
 import '../utils.dart';
 
@@ -24,6 +26,7 @@ class AuthScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    AuthController authController = Get.put(AuthController());
     return Scaffold(
       body: Container(
         alignment: Alignment.center,
@@ -37,18 +40,29 @@ class AuthScreen extends StatelessWidget {
               const SizedBox(
                 height: 20,
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  buildTab("Login", true, context),
-                  buildTab("Register", false, context),
-                ],
+              Obx(
+                () => Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    InkWell(
+                      onTap: () => AuthController().changeTab("Login"),
+                      child: buildTab("Login",
+                          authController.tab.value == "Login", context),
+                    ),
+                    InkWell(
+                      onTap: () => AuthController().changeTab("Login"),
+                      child: buildTab("Register",
+                          authController.tab.value == "Register", context),
+                    ),
+                  ],
+                ),
               ),
               const SizedBox(
                 height: 20,
               ),
-              const LoginWidget(),
-              const RegisterWidget(),
+              Obx(() => authController.tab.value == "Login"
+                  ? const LoginWidget()
+                  : const RegisterWidget()),
             ],
           ),
         ),
