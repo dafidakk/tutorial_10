@@ -7,7 +7,7 @@ import 'package:get/get.dart';
 import '../utils.dart';
 
 class AuthScreen extends StatelessWidget {
-  AuthController authController = Get.put(AuthController());
+  AuthController authController = Get.find<AuthController>();
   buildTab(text, selected, context) {
     return SizedBox(
       width: MediaQuery.of(context).size.width / 2,
