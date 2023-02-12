@@ -13,7 +13,7 @@ class Root extends StatelessWidget {
       () {
         return authController.user.value == null
             ? AuthScreen()
-            : const HomeScreen();
+            :  HomeScreen();
       },
     );
   }

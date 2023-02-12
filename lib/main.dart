@@ -20,6 +20,8 @@ void main() async {
 class MyApp extends StatelessWidget {
   AuthController authController = Get.put(AuthController());
 
+  MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
