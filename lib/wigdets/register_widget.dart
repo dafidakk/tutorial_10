@@ -18,16 +18,19 @@ class RegisterWidget extends StatelessWidget {
     return Column(
       children: [
         MyTextField(
+            textWidth: MediaQuery.of(context).size.width,
             controller: emailcontroller,
             hintText: 'Email',
             obsecureText: false),
         const SizedBox(height: 16),
         MyTextField(
+            textWidth: MediaQuery.of(context).size.width,
             controller: usernamecontroller,
             hintText: 'Username',
             obsecureText: false),
         const SizedBox(height: 16),
         MyTextField(
+            textWidth: MediaQuery.of(context).size.width,
             controller: passwordcontroller,
             hintText: 'Password',
             obsecureText: true),
@@ -35,6 +38,7 @@ class RegisterWidget extends StatelessWidget {
           height: 20,
         ),
         MyButton(
+          textWidth: MediaQuery.of(context).size.width * 0.6,
           // implement register credentials check password creteria etc.
           text: 'Register',
           onPressed: () => authController.registerUser(

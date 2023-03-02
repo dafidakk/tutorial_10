@@ -6,20 +6,26 @@ class MyTextField extends StatelessWidget {
   final TextEditingController controller;
   final String hintText;
   final bool obsecureText;
+  final double textWidth;
+  final TextInputType? keyboardType;
 
-  const MyTextField(
-      {super.key,
-      required this.controller,
-      required this.hintText,
-      required this.obsecureText});
+  const MyTextField({
+    super.key,
+    required this.controller,
+    required this.hintText,
+    required this.obsecureText,
+    required this.textWidth,
+    this.keyboardType,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 40),
       child: SizedBox(
-        width: MediaQuery.of(context).size.width,
+        width: textWidth,
         child: TextFormField(
+          keyboardType: keyboardType,
           controller: controller,
           obscureText: obsecureText,
           style: textStyle(16, Colors.black, FontWeight.w500),

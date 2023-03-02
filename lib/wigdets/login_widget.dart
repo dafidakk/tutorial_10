@@ -30,11 +30,13 @@ class _LoginWidgetState extends State<LoginWidget> {
     return Column(
       children: [
         MyTextField(
+            textWidth: MediaQuery.of(context).size.width,
             controller: emailcontroller,
             hintText: 'Email',
             obsecureText: false),
         const SizedBox(height: 16),
         MyTextField(
+            textWidth: MediaQuery.of(context).size.width,
             controller: passwordcontroller,
             hintText: 'Password',
             obsecureText: true),
@@ -42,6 +44,7 @@ class _LoginWidgetState extends State<LoginWidget> {
           height: 20,
         ),
         MyButton(
+            textWidth: MediaQuery.of(context).size.width * 0.6,
             text: 'Login',
             onPressed: () {
               authController.loginUser(

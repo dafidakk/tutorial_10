@@ -4,13 +4,14 @@ import 'package:tutorial_10/utils.dart';
 class MyButton extends StatelessWidget {
   final Function()? onPressed;
   final String text;
-  const MyButton({super.key, this.onPressed, required this.text});
+  final double textWidth;
+  const MyButton({super.key, this.onPressed, required this.text, required this.textWidth});
 
   @override
   Widget build(BuildContext context) {
     return Container(
       height: 45,
-      width: MediaQuery.of(context).size.width * 0.6,
+      width: textWidth ,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(8),
       ),
